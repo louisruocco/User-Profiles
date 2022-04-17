@@ -10,18 +10,21 @@ const router = express.Router();
 router.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
     const user = await users.find({email: email});
+    const hashedPassword = await bcrypt.hash(password, 8);
     
     if(user.length > 0){
         return res.send("User Already Exists!");
     }
 
-    const hashedPassword = await bcrypt.hash(password, 8);
-
-    await user.create({
+    await users.create({
         name: name, 
         email: email, 
         password: hashedPassword
     });
+
+    await data.create({
+        name: name, 
+    })
 
     res.redirect("/login");
 });
@@ -43,6 +46,15 @@ router.post("/login", async (req, res) => {
         req.session.userId = id
         res.redirect("/home");
     }
+});
+
+router.post("/edit-profile/:name", async (req, res) => {
+    const { name, email, age, hobby } = req.body;
+    await users.updateOne({name: req.params.name}, {
+        name: name, 
+        email: email
+    });
+    await data.updateONe({})
 })
 
 module.exports = router;

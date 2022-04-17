@@ -5,10 +5,9 @@ const db = mongoose.connect("mongodb://localhost/user-profiles", () => {
 })
 
 const dataSchema = new mongoose.Schema({
-    name: String, 
-    surname: String, 
+    email: String,
     age: Number, 
-    hobbies: [String]
+    hobby: String 
 })
 
 const data = mongoose.model("data", dataSchema);
