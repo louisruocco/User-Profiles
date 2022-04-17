@@ -26,6 +26,16 @@
     <hr>
     <div class="subtitle">
         <h2>All Profiles:</h2>
+        <% allUsers.forEach(user => { %>
+            <h4>Name:</h4>
+            <p><%= user.name %></p>
+            <h4>Email Address:</h4>
+            <p><%= user.email %></p>
+            <h4>Age:</h4>
+            <p><%= user.age %></p>
+            <h4>Favourite Hobby:</h4>
+            <p><%= user.hobby %></p>
+        <% }) %>
     </div>
 </body>
 </html>
