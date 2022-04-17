@@ -10,11 +10,22 @@
     <div class="title">
         <h1>Profiles</h1>
     </div>
+    <hr>
     <div class="user-profile">
-        <h3>Your Profile:</h3>
+        <h2>Your Profile:</h2>
+        <h4>Name:</h4>
         <p><%= userCreds.name %></p>
+        <h4>Email Address:</h4>
         <p><%= userCreds.email %></p>
+        <h4>Age:</h4>
+        <p><%= userData.age %></p>
+        <h4>Favourite Hobby:</h4>
+        <p><%= userData.hobby %></p>
         <a href="/edit-profile/<%= userCreds.name %>">Edit Profile</a>
+    </div>
+    <hr>
+    <div class="subtitle">
+        <h2>All Profiles:</h2>
     </div>
 </body>
 </html>

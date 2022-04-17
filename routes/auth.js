@@ -23,7 +23,8 @@ router.post("/register", async (req, res) => {
     });
 
     await data.create({
-        name: name, 
+        name: name,
+        email: email, 
     })
 
     res.redirect("/login");
@@ -54,7 +55,12 @@ router.post("/edit-profile/:name", async (req, res) => {
         name: name, 
         email: email
     });
-    await data.updateONe({})
+    await data.updateOne({name: req.params.name}, {
+        email: email,
+        age: age, 
+        hobby: hobby
+    });
+    res.redirect("/home");
 })
 
 module.exports = router;

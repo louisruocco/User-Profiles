@@ -11,10 +11,14 @@
         <h1>Edit Profile - <%= userCreds.name %></h1>
     </div>
     <div class="input-section">
-        <form action="/auth/edit-profile/<%= userCreds.name %>">
+        <form action="/auth/edit-profile/<%= userCreds.name %>" method = "POST">
+            <label for="name">Name</label>
             <input type="text" name  = "name" value = "<%= userCreds.name %>" required>
+            <label for="email">Email Address</label>
             <input type="text" name = "email" value = "<%= userCreds.email %>" required>
+            <label for="age">Age</label>
             <input type="text" name = "age" value = "<%= userData.age %>" required>
+            <label for="hobby">Favourite Hobby</label>
             <input name="hobby" value = "<%= userData.hobby %>"></input>
             <button>Submit</button>
         </form>

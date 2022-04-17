@@ -37,12 +37,13 @@ router.get("/register", redirectHome, (req, res) => {
 
 router.get("/home", redirectLanding, async (req, res) => {
     const userCreds = await users.findOne({id: req.session.userId});
-    res.render("home", {userCreds});
+    const userData = await data.findOne({email: userCreds.email});
+    res.render("home", {userCreds, userData});
 });
 
 router.get("/edit-profile/:name", redirectLanding, async (req, res) => {
     const userCreds = await users.findOne({name: req.params.name});
-    const userData = await data.find({name: req.params.name});
+    const userData = await data.findOne({name: req.params.name});
     res.render("edit", {userCreds, userData});
 })
 
