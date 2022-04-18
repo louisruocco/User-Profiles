@@ -7,6 +7,8 @@ const users = require("../db/schemas/users.js");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 
+dotenv.config({path: "./.env"});
+
 router.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
     const user = await users.find({email: email});
@@ -61,6 +63,17 @@ router.post("/edit-profile/:name", async (req, res) => {
         hobby: hobby
     });
     res.redirect("/home");
+});
+
+router.post("/logout", (req, res) => {
+    req.session.destroy((err) => {
+        if(err){
+            return res.redirect("/home");
+        } else {
+            res.clearCookie(process.env.SESS_NAME);
+            res.redirect("/");
+        }   
+    })
 })
 
 module.exports = router;

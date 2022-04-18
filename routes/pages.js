@@ -38,7 +38,8 @@ router.get("/register", redirectHome, (req, res) => {
 router.get("/home", redirectLanding, async (req, res) => {
     const userCreds = await users.findOne({id: req.session.userId});
     const userData = await data.findOne({email: userCreds.email});
-    const allUsers = await data.find({});
+    const allUsers = await data.find({email: {$not: {$regex: userCreds.email}}});
+    console.log(allUsers);
     res.render("home", {userCreds, userData, allUsers});
 });
 
