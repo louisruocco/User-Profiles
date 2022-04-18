@@ -1,3 +1,129 @@
-body {
-    background: blue;
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    text-transform: capitalize;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+}
+
+.links a, .profile a {
+    margin: 20px;
+    text-decoration: none;
+    background: navy;
+    color: white;
+    padding: 30px;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: .3s ease;
+}
+
+.links a:hover, .link a:hover, .profile a:hover {
+    transition: .3s ease;
+    transform: scale(1.15);
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+}
+
+.link a {
+    margin: 20px;
+    text-decoration: none;
+    background: navy;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 17px;
+    transition: .3s ease;
+}
+
+.nav {
+    width: 100%;
+    background: navy;
+}
+
+.nav nav {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    justify-content: space-around;
+    margin: auto;
+    padding: 10px;
+}
+
+.nav button {
+    background: none;
+    outline: none;
+    border: none;
+    color: white;
+    transition: .2s ease;
+    font-size: 22px;
+}
+
+.logout button:hover {
+    color: red;
+    transition: .2s ease;
+}
+
+.home button:hover {
+    color: seagreen;
+    transition: .2s ease;
+}
+
+.input-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    width: 100%;
+}
+
+.input-section button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.profile-title {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.user-profile, .data {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+.user-profile div, .data div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.user-profile p {
+    font-size: 20px;
+    padding: 3px;
+}
+
+.edit {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.profile {
+    display: flex;
+    justify-content: center;
 }
