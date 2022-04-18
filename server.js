@@ -18,12 +18,12 @@ const sessionStoreConfig = new MongoDBStore({
     collection: "user-profiles"
 });
 
+app.use(express.static("public"));
+app.use("/css", express.static(__dirname + "/public/css"));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(flash());
 app.set("view engine", "ejs");
-app.use(express.static("public"));
-app.use("/", express.static(__dirname + "public/css"));
 app.use(session({
     name: process.env.SESS_NAME, 
     secret: process.env.SESS_SECRET, 
