@@ -5,7 +5,6 @@ const db = mongoose.connect("mongodb://localhost/user-profiles", () => {
 })
 
 const dataSchema = new mongoose.Schema({
-    name: String, 
     email: String,
     age: Number, 
     hobby: String 

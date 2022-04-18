@@ -21,12 +21,11 @@ router.post("/register", async (req, res) => {
     await users.create({
         name: name, 
         email: email, 
-        password: hashedPassword
+        password: hashedPassword,
     });
 
     await data.create({
-        name: name,
-        email: email, 
+        email: email,
     })
 
     res.redirect("/login");
@@ -51,16 +50,16 @@ router.post("/login", async (req, res) => {
     }
 });
 
-router.post("/edit-profile/:name", async (req, res) => {
+router.post("/edit-profile/:email", async (req, res) => {
     const { name, email, age, hobby } = req.body;
-    await users.updateOne({name: req.params.name}, {
+    await users.updateOne({email: req.params.email}, {
         name: name, 
-        email: email
+        email: email,
     });
-    await data.updateOne({name: req.params.name}, {
+    await data.updateOne({email: req.params.email}, {
         email: email,
         age: age, 
-        hobby: hobby
+        hobby: hobby,
     });
     res.redirect("/home");
 });

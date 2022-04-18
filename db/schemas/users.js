@@ -7,7 +7,8 @@ const db = mongoose.connect("mongodb://localhost/user-profiles", () => {
 const userSchema = new mongoose.Schema({
     name: String, 
     email: String, 
-    password: String
+    password: String,
+    userId: String
 })
 
 const users = mongoose.model("users", userSchema);
